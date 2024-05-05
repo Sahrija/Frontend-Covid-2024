@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+    @apply flex justify-evenly;
+
+}
+
+.card a {
+
+    @apply bg-red-50 
+    rounded-lg
+    /* ring-2 ring-blue-400 ring-offset-2  */
+    shadow-lg;
+}

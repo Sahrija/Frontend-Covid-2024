@@ -1,0 +1,11 @@
+
+
+.table_wrapper {
+    overflow-x: scroll;
+
+    td,
+    th {
+        padding: 5px 20px;
+        text-wrap: nowrap;
+    }
+}

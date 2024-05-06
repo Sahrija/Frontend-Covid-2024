@@ -4,19 +4,27 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
     return (
-        <div className={`${styles.container} p-4`}>
-            <div className={`${styles.hero__left} mb-16`}>
+        <div className={`${styles.container} px-4 py-16 min-w-96 md:flex md:px-8`}>
+            <div className={`${styles.hero__left} mb-16 flex-1`}>
                 <h1 className={`${styles.hero__title} text-5xl font-bold text-teal-400`}>
                     Covid id
                 </h1>
-                <p className={`${styles.hero__subtitle} font-medium mt-1 text-teal-500/50`}>
+                <p className={`${styles.hero__subtitle} mt-1 font-medium text-xl text-teal-500/50`}>
                     Monitoring perkembangan covid</p>
-                <p className={`${styles.hero__description} mt-4 mb-8`}>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, eveniet quod ratione, at repellat suscipit quisquam dolorem veritatis voluptas doloremque totam necessitatibus sed dolor vel omnis repellendus placeat molestiae iste.</p>
-                <Button>dafadf</Button>
+                <p className={`${styles.hero__description} mt-4 mb-8 text-black/70`}>
+                    Kami secara aktif memantau perkembangan <span className='underline decoration-2 font-bold decoration-teal-400'>
+                        COVID-19
+                    </span> untuk memperoleh pemahaman yang mendalam tentang situasi saat ini. Data terbaru kami digunakan untuk mengidentifikasi tren dan mengambil tindakan proaktif guna menjaga kesehatan dan keamanan masyarakat.
+                </p>
+                <Button>Mulai</Button>
             </div>
-            <div className={styles.hero__right}>
-                <img src="/assets/hero.png" alt="hero image" />
+            <div className={`${styles.hero__right} flex-[2] flex justify-end items-center`}>
+                <img
+                    className={`${styles.hero__image}`}
+                    src="/assets/hero.png"
+                    alt="hero image"
+                    width='600'
+                />
             </div>
         </div>
     )

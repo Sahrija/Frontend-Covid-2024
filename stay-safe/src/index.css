@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+  font-family: 'Lato';
+}
 
 .my-button {
   @apply first-letter:text-green-600 border-[3px];
@@ -10,7 +16,7 @@
   @apply hover:bg-white/20 hover:underline px-2 py-1 rounded-sm;
 }
 
-.btn{
+.btn {
   padding: 5px 10px;
   @apply bg-teal-400 text-white rounded-md
 }

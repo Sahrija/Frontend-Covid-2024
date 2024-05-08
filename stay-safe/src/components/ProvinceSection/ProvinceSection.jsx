@@ -1,7 +1,6 @@
 import styles from './ProvinceSection.module.css';
-import data from '../../constants/provinces'
 
-export default function ProvinceSection() {
+export default function ProvinceSection({ data }) {
     return (
         <section className={`${styles.container} px-4 md:p-8`}>
             <header className={``}>
@@ -9,8 +8,8 @@ export default function ProvinceSection() {
                 <p>subtitle</p>
             </header>
 
-            <div className={`${styles.table_wrapper}`}>
-                <table >
+            <div className={`${styles.table_wrapper} m-auto max-w-fit`}>
+                <table>
                     <thead className={`bg-teal-400 text-white`}>
                         <tr>
                             <th>No</th>
@@ -26,9 +25,9 @@ export default function ProvinceSection() {
                             return (
                                 <tr
                                     key={index}
-                                    className={`even:bg-teal-200/50`}
+                                    className={`even:bg-teal-100`}
                                 >
-                                    <td>{index + 1}</td>
+                                    <td className='text-right'>{index + 1}</td>
                                     <td>{province.kota}</td>
                                     <td className='text-right'>{province.kasus}</td>
                                     <td className='text-right'>{province.sembuh}</td>
@@ -41,5 +40,6 @@ export default function ProvinceSection() {
                 </table>
             </div>
         </section>
+
     )
 }

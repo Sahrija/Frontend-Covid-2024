@@ -1,0 +1,5 @@
+.form__input
+{
+    @apply border-slate-400 border-2 px-2 py-1 outline-2 focus:outline focus:outline-teal-400
+    rounded-lg mb-4 h-10 font-sans
+}

@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={`${styles.footer__left} mb-8`}>
         <h2 className={`text-3xl`}>
           <Link to={'/'}>
-            Covid id
+            Stay&Safe
           </Link>
         </h2>
         <p>developed by Morning coffee</p>

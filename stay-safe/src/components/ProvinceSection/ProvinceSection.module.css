@@ -1,23 +1,25 @@
-
-
 .table_wrapper {
     overflow-x: auto;
-    
-    td,th {
+
+    td,
+    th {
         padding: 5px 20px;
         text-wrap: nowrap;
     }
+
+    td {
+        @apply even:bg-teal-50 odd:bg-white;
+    }
 }
 
-
-.table_wrapper td{
-    @apply hover:bg-teal-200 
+.table_wrapper td {
+    @apply hover:bg-teal-100
 }
 
-.table_wrapper tr{
-    @apply hover:outline -outline-offset-2 outline-emerald-400 
+.table_wrapper tr {
+    @apply hover:outline outline-2 -outline-offset-2 outline-emerald-400
 }
 
-.table_wrapper td.active{
-background: red;
+.table_wrapper td.active {
+    background: red;
 }

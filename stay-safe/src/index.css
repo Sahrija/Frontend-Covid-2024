@@ -17,6 +17,14 @@ body{
 }
 
 .btn {
-  padding: 5px 10px;
-  @apply bg-teal-400 text-white rounded-md
+  @apply bg-teal-400 text-white rounded-md px-4 py-2
+}
+
+.btn-primary{
+  @apply bg-gradient-to-r from-teal-400 to-emerald-400
+  hover:from-teal-500 hover:to-emerald-500
+}
+
+.bg-primary-gradient {
+  @apply bg-gradient-to-r from-teal-400 to-emerald-400
 }

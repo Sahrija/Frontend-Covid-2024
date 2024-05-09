@@ -11,8 +11,8 @@ const navbarClickHandler = () => {
 
 export default function Navbar() {
   return (
-    <header className={`${styles.container} bg-teal-400 text-white p-4 flex justify-between items-center`}>
-      <Link to={'/'} className={`text-3xl font-bold`}>Covid id</Link>
+    <header className={`${styles.container} bg-teal-400 text-white p-4 flex justify-between items-center | bg-primary-gradient`}>
+      <Link to={'/'} className={`text-3xl font-bold`}>Stay&Safe</Link>
 
       <button onClick={navbarClickHandler} className={`flex sm:hidden aspect-square rounded-md p-0.5 h-8 | active:outline outline-white/50 outline-2 `}>
         <img className='w-full' src="/assets/hamburger-menu.svg" alt="" />
@@ -20,7 +20,7 @@ export default function Navbar() {
       <nav className='hidden sm:block'>
         <NavLinks />
       </nav>
-      <nav id='mobile-navbar' className='bg-teal-400 h-40 sm:hidden w-screen absolute top-16 right-0 overflow-hidden origin-top transition-[height]'>
+      <nav id='mobile-navbar' className='bg-teal-400 h-40 sm:hidden w-screen absolute top-16 right-0 overflow-hidden origin-top transition-[height]  | bg-primary-gradient'>
         <NavLinks />
       </nav>
     </header>

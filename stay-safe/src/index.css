@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   font-family: 'Lato';
 }
@@ -28,3 +32,4 @@ body{
 .bg-primary-gradient {
   @apply bg-gradient-to-r from-teal-400 to-emerald-400
 }
+

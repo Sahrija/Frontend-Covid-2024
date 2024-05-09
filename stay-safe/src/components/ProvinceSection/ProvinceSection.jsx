@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import DownloadDataButton from '../DownloadDataButton/DownloadDataButton';
 import styles from './ProvinceSection.module.css';
+import { formatThousand } from '../../utils/utils';
 
 
 export default function ProvinceSection({ data }) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const rowCount = 10;
-    
+
     const provinces = data.provinces;
     const slicedProvinces = data.provinces.slice(currentIndex, currentIndex + rowCount);
 
@@ -54,17 +55,23 @@ export default function ProvinceSection({ data }) {
                         </thead>
                         <tbody>
                             {slicedProvinces.map((province, index) => {
+                                let { kota, kasus, sembuh, dirawat, meninggal } = province;
+                                kasus = formatThousand(kasus)
+                                sembuh = formatThousand(sembuh)
+                                dirawat = formatThousand(dirawat)
+                                meninggal = formatThousand(meninggal)
                                 return (
-                                    <tr
+                                    < tr
                                         key={index}
-                                        className={`border-b-2 last:border-none`}
+                                        className={`border-b-2 last:border-none`
+                                        }
                                     >
                                         <td className='text-right'>{index + 1 + currentIndex}</td>
-                                        <td className='text-left'>{province.kota}</td>
-                                        <td className='text-right'>{province.kasus}</td>
-                                        <td className='text-right'>{province.sembuh}</td>
-                                        <td className='text-right'>{province.dirawat}</td>
-                                        <td className='text-right'>{province.meninggal}</td>
+                                        <td className='text-left'>{kota}</td>
+                                        <td className='text-right'>{kasus}</td>
+                                        <td className='text-right'>{sembuh}</td>
+                                        <td className='text-right'>{dirawat}</td>
+                                        <td className='text-right'>{meninggal}</td>
                                     </tr>
                                 )
                             })}
@@ -78,7 +85,7 @@ export default function ProvinceSection({ data }) {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
 
     )
 }

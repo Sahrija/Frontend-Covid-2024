@@ -11,12 +11,12 @@ export default function Hero() {
                 </h1>
                 <p className={`${styles.hero__subtitle} mt-1 font-medium text-xl text-teal-500/50`}>
                     Monitoring perkembangan covid</p>
-                <p className={`${styles.hero__description} mt-4 mb-8 text-black/70`}>
+                <p className={`${styles.hero__description} mt-4 text-black/70`}>
                     Pantau perkembangan tentang <span className='underline decoration-2 font-bold decoration-teal-400'>
                         COVID-19
                     </span> secara tepat dan akurat. Tetap aman di rumah dan selalu pakai masker ketika ke tempat ramai. 
-                    <p className='underline decoration-2 font-bold text-teal-400 decoration-teal-400'>#jangankendorpakaimasker</p>
                 </p>
+                    <p className='mb-8 underline decoration-2 font-bold text-teal-400 decoration-teal-400'>#jangankendorpakaimasker</p>
                 <a href='#IndonesiaSection' className='btn btn-primary'>Pantau</a>
             </div>
             <div className={`${styles.hero__right} flex-[2] flex justify-end items-center`}>

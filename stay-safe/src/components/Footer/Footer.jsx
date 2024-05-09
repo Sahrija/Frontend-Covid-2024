@@ -12,7 +12,9 @@ export default function Footer() {
             Stay&Safe
           </Link>
         </h2>
-        <p>developed by Morning coffee</p>
+        <p className='whitespace-normal'>
+          Developed by <a className='underline' href="https://github.com/sahrija">Morning Coffee
+          </a> on github</p>
       </div>
       <div className={styles.footer__right}>
         <p>Pages</p>

@@ -18,10 +18,10 @@ export default function Footer() {
         <p>Pages</p>
         <nav>
           <ul className='sm:flex flex-row gap-8'>
-            <li><Link to={'/test'}>Link</Link></li>
-            <li><Link to={'/test'}>Link</Link></li>
-            <li><Link to={'/test'}>Link</Link></li>
-            <li><Link to={'/test'}>Link</Link></li>
+            <li><Link to={'#IndonesiaSection'}>Indonesia</Link></li>
+            <li><Link to={'#ProvinceSection'}>Province</Link></li>
+            <li><Link to={'#FormSection'}>About</Link></li>
+            <li><Link to={'#AboutSection'}>Form</Link></li>
           </ul>
         </nav>
       </div>

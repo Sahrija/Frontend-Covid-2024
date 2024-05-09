@@ -1,15 +1,7 @@
 import { useState } from 'react';
 import styles from './CovidFormSection.module.css';
 
-function getCurrentDate() {
-    const currentDate = new Date();
-    return currentDate.getFullYear() + '-' +
-        currentDate.getMonth() + '-' +
-        currentDate.getDate() + ' ' +
-        currentDate.getHours() + ':' +
-        currentDate.getMinutes() + ':' +
-        currentDate.getSeconds();
-}
+import * as utils from '../../utils/utils';
 
 export default function CovidFormSection({ province_state, indonesia_state }) {
     const [province_data, setProvinceData] = province_state;
@@ -19,12 +11,12 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
     const [provinsi, setProvinsi] = useState('')
     const [status, setStatus] = useState('')
 
-    function updateStatusRecord(province_id, status, amount) {
+    function updateStatusRecord(province_idx, status, amount) {
         // duplicate the province_data
         const newProvinceData = { ...province_data };
 
-        newProvinceData.provinces[province_id][status] += amount;
-        newProvinceData.last_update = getCurrentDate();
+        newProvinceData.provinces[province_idx][status] += amount;
+        newProvinceData.last_update = utils.getCurrentDate();
 
         // update state with the updated duplicate province_data
         setProvinceData(newProvinceData);
@@ -46,7 +38,7 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
     }
 
     return (
-        <section className={`${styles.container} p-8 md:px-16 bg-slate-100`}>
+        <section id='FormSection' className={`${styles.container} p-8 md:px-16 bg-slate-100`}>
             <div className='max-w-screen-xl flex flex-col md:flex-row-reverse md:items-center gap-16 m-auto '>
                 <div className={`${styles.right} flex-1`}>
                     <header>

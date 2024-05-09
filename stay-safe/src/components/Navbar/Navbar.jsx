@@ -1,26 +1,27 @@
+import { useState } from 'react';
 import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
 
-const navbarClickHandler = () => {
-  const mobileNavbar = document.getElementById('mobile-navbar');
-  if (mobileNavbar) {
-    mobileNavbar.classList.toggle('h-0');
-    mobileNavbar.classList.toggle('h-40');
-  }
-}
-
 export default function Navbar() {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false)
+
+  const navbarClickHandler = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+  }
+
   return (
     <header className={`${styles.container} bg-teal-400 text-white p-4 flex justify-between items-center | bg-primary-gradient`}>
       <Link to={'/'} className={`text-3xl font-bold`}>Stay&Safe</Link>
 
-      <button onClick={navbarClickHandler} className={`flex sm:hidden aspect-square rounded-md p-0.5 h-8 | active:outline outline-white/50 outline-2 `}>
+      <button onClick={navbarClickHandler} className={`flex sm:hidden aspect-square rounded-md p-0.5 h-8 | active:outline outline-white/50 outline-3 `}>
         <img className='w-full' src="/assets/hamburger-menu.svg" alt="" />
       </button>
       <nav className='hidden sm:block'>
         <NavLinks />
       </nav>
-      <nav id='mobile-navbar' className='bg-teal-400 h-40 sm:hidden w-screen absolute top-16 right-0 overflow-hidden origin-top transition-[height]  | bg-primary-gradient'>
+      <nav id='mobile-navbar' 
+      className={`bg-teal-400 sm:hidden w-full absolute top-16 right-0 
+      overflow-hidden origin-top transition-[height] ${isNavbarOpen? 'h-56' : 'h-0'} | bg-primary-gradient`}>
         <NavLinks />
       </nav>
     </header>
@@ -29,11 +30,11 @@ export default function Navbar() {
 
 function NavLinks() {
   return (
-    <ul className={`flex px-4 flex-col items-stretch sm:px-0 sm:gap-2 sm:items-center sm:flex-row`}>
-      <li><Link className={`inline-block py-2 link-item`} to={'/test'}>Link</Link></li>
-      <li><Link className={`inline-block py-2 link-item`} to={'/test'}>Link</Link></li>
-      <li><Link className={`inline-block py-2 link-item`} to={'/test'}>Link</Link></li>
-      <li><Link className={`inline-block py-2 link-item`} to={'/test'}>Link</Link></li>
+    <ul className={`flex flex-col items-stretch sm:gap-2 sm:items-center sm:flex-row`}>
+      <li><a className={`block link-item max-sm:py-4`} href={'#IndonesiaSection'}>Indonesia</a></li>
+      <li><a className={`block link-item max-sm:py-4`} href={'#ProvinceSection'}>Province</a></li>
+      <li><a className={`block link-item max-sm:py-4`} href={'#FormSection'}>Form</a></li>
+      <li><a className={`block link-item max-sm:py-4`} href={'#AboutSection'}>About</a></li>
     </ul>
   )
 }

@@ -60,6 +60,7 @@ export default function ProvinceSection({ data }) {
                                 sembuh = formatThousand(sembuh)
                                 dirawat = formatThousand(dirawat)
                                 meninggal = formatThousand(meninggal)
+
                                 return (
                                     < tr
                                         key={index}
@@ -75,6 +76,9 @@ export default function ProvinceSection({ data }) {
                                     </tr>
                                 )
                             })}
+
+                            {/* <EmptyRow showedCount={slicedProvinces} rowCount={rowCount} idx={currentIndex} /> */}
+
                         </tbody>
                     </table>
                 </div>
@@ -86,6 +90,24 @@ export default function ProvinceSection({ data }) {
                 </div>
             </div>
         </section >
+
+    )
+}
+
+
+function EmptyRow({ showedCount, rowCount , idx}) {
+    const numLeft = rowCount - showedCount
+
+    const left = [...Array(numLeft ? numLeft : 1).keys()];
+
+    return (
+        <>{left.map(e =>
+            <tr tr
+                key={1}
+                className={`border-b-2 last:border-none h-[33.970px]`
+                }
+            ></tr>
+        )}</>
 
     )
 }

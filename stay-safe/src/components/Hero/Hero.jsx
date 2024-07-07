@@ -4,7 +4,7 @@ import styles from './Hero.module.css';
 
 export default function Hero() {
     return (
-        <div className={`${styles.container} max-sm:text-center px-4 py-16 min-w-96 md:flex md:px-16 max-w-screen-xl m-auto`}>
+        <section className={`${styles.container} max-sm:text-center px-4 py-16 min-w-96 md:flex md:px-16 max-w-screen-xl m-auto`}>
             <div className={`${styles.hero__left} mb-16 flex-1`}>
                 <h1 className={`${styles.hero__title} text-5xl font-bold text-teal-400`}>
                     Stay&Safe
@@ -27,6 +27,6 @@ export default function Hero() {
                     width='600'
                 />
             </div>
-        </div>
+        </section>
     )
 }

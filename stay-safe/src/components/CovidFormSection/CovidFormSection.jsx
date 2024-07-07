@@ -3,6 +3,8 @@ import styles from './CovidFormSection.module.css';
 
 import * as utils from '../../utils/utils';
 
+
+
 export default function CovidFormSection({ province_state, indonesia_state }) {
     const [province_data, setProvinceData] = province_state;
     const [indonesia_data, setIndonesiaData] = indonesia_state;
@@ -11,7 +13,7 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
     const [provinsi, setProvinsi] = useState('')
     const [status, setStatus] = useState('')
 
-    function updateStatusRecord(province_idx, status, amount) {
+    function updateProvinceData(province_idx, status, amount) {
         // duplicate the province_data
         const newProvinceData = { ...province_data };
 
@@ -20,18 +22,17 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
 
         // update state with the updated duplicate province_data
         setProvinceData(newProvinceData);
+    }
 
-
+    function updateIndonesiaData(status, amount) {
         const newIndonesiaData = { ...indonesia_data }
-
         const getIndonesiaStatus = {
             kasus: 0,       // "Positif"
-            dirawat: 0,      // "Positif"
-            sembuh: 1,   // "Sembuh"
-            meninggal: 2      // "Meninggal"
+            dirawat: 0,     // "Positif"
+            sembuh: 1,      // "Sembuh"
+            meninggal: 2    // "Meninggal"
         }
-
-        newIndonesiaData.indonesia[getIndonesiaStatus[status]].total += jumlah;
+        newIndonesiaData.indonesia[getIndonesiaStatus[status]].total += amount;
 
         setIndonesiaData(newIndonesiaData);
     }
@@ -40,8 +41,9 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
         // prevent page refresh
         event.preventDefault();
 
-        // update province_data
-        updateStatusRecord(provinsi, status, jumlah);
+        // update both data
+        updateProvinceData(provinsi, status, jumlah);
+        updateIndonesiaData(status, jumlah);
 
         // reset form
         setStatus('')
@@ -57,7 +59,8 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
                         <h2 className='text-teal-400 text-4xl font-semibold mb-4'>Covid Case Form</h2>
                     </header>
                     {/* form */}
-                    <form className='flex flex-col'
+                    <form
+                        className='flex flex-col'
                         id='form'
                         onSubmit={handleSubmit}
                     >
@@ -69,20 +72,17 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
                             id="provinsi"
                             required
                             value={provinsi}
-                            onChange={(e) => { setProvinsi(e.target.value) }}
-
+                            onChange={(e) => setProvinsi(e.target.value)}
                         >
                             <option value=''>Pilih Kota</option>
-                            {province_data.provinces.map((province, index) => {
-                                return (
-                                    <option
-                                        key={index}
-                                        value={index}
-                                    >
-                                        {province.kota}
-                                    </option>
-                                )
-                            })}
+                            {province_data.provinces.map((province, index) =>
+                                <option
+                                    key={index}
+                                    value={index}
+                                >
+                                    {province.kota}
+                                </option>
+                            )}
                         </select>
 
                         <label htmlFor="status">Status</label>
@@ -92,7 +92,7 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
                             id="status"
                             required
                             value={status}
-                            onChange={(e) => { setStatus(e.target.value) }}
+                            onChange={(e) => setStatus(e.target.value)}
                         >
                             <option value=''>Pilih Status</option>
                             <option value="kasus">Kasus</option>
@@ -110,11 +110,9 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
                             required
                             placeholder='0'
                             value={jumlah || ''}
-                            onChange={(e) => {
-                                setJumlah(parseInt(e.target.value || 0))
-                            }}
+                            onChange={(e) => setJumlah(parseInt(e.target.value || 0))}
                         />
-                        
+
                         <br />
                         <button className={`btn btn-primary`} type='submit'>Submit</button>
                     </form>

@@ -1,8 +1,7 @@
 import styles from './IndonesiaSection.module.css';
-import {formatThousand} from '../../utils/utils'
+import { formatThousand } from '../../utils/utils'
 
 export default function IndonesiaSection({ data }) {
-    const s = ''
     return (
         <section id='IndonesiaSection' className={`${styles.container} bg-slate-100`}>
             <div className='max-w-screen-xl m-auto p-8'>
@@ -16,13 +15,13 @@ export default function IndonesiaSection({ data }) {
                 </header>
                 {/* card wrapper */}
                 <div className='m-auto flex flex-col sm:flex-row flex-wrap gap-8 max-w-screen-lg'>
-                    {data.indonesia.map((record, index) => {
-                        return <Card
+                    {data.indonesia.map((record, index) =>
+                        <Card
                             key={index}
                             record={record}
                             index={index}
                         />
-                    })}
+                    )}
                 </div>
             </div>
         </section>
@@ -30,9 +29,8 @@ export default function IndonesiaSection({ data }) {
 }
 
 function Card({ record, index }) {
-    
-    const totalLabelColor = ['text-green-500', 'text-sky-500', 'text-red-500']
 
+    const totalLabelColor = ['text-green-500', 'text-sky-500', 'text-red-500']
     const total = formatThousand(record.total);
 
     return <div className='bg-white p-10 flex flex-col sm:flex-1 text-center rounded shadow-md'>

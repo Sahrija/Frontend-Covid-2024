@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Navbar.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false)
@@ -17,7 +17,7 @@ export default function Navbar() {
         <img className='w-full' src="/assets/hamburger-menu.svg" alt="" />
       </button>
 
-      <nav className='hidden sm:block'>
+      <nav className='sm:block hidden'>
         <NavLinks />
       </nav>
 
@@ -26,18 +26,37 @@ export default function Navbar() {
                     overflow-hidden origin-top transition-[height] ${isNavbarOpen ? 'h-56' : 'h-0'} |`}>
         <NavLinks />
       </nav>
-      
+
     </header>
   )
 }
 
 function NavLinks() {
+
+  const navLinks = [
+    { label: 'Home', href: '/', },
+    { label: 'Indonesia', href: '/indonesia', },
+    { label: 'Province', href: '/province', },
+    { label: 'About', href: '/about', },
+  ]
+
   return (
     <ul className={`flex flex-col items-stretch sm:gap-2 sm:items-center sm:flex-row`}>
-      <li><a className={`block link-item max-sm:py-4`} href={'#IndonesiaSection'}>Indonesia</a></li>
-      <li><a className={`block link-item max-sm:py-4`} href={'#ProvinceSection'}>Province</a></li>
-      <li><a className={`block link-item max-sm:py-4`} href={'#FormSection'}>Form</a></li>
-      <li><a className={`block link-item max-sm:py-4`} href={'#AboutSection'}>About</a></li>
+      {navLinks.map(
+        ({ label, href }) =>
+          <NavLink key={label} label={label} href={href} />
+      )}
     </ul>
+  )
+}
+
+function NavLink({ label, href }) {
+  const location = useLocation();
+  const isActive = location.pathname === href;
+
+  return (
+    <li>
+      <Link className={`block link-item max-sm:py-4 font-bold ${isActive ? 'text-white' : 'text-emerald-100'}`} to={href}>{label}</Link>
+    </li>
   )
 }

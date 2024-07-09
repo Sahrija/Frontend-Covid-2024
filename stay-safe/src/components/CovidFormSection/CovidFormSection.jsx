@@ -5,7 +5,7 @@ import * as utils from '../../utils/utils';
 
 
 
-export default function CovidFormSection({ province_state, indonesia_state }) {
+export default function CovidFormSection({ province_state = [], indonesia_state = [] }) {
     const [province_data, setProvinceData] = province_state;
     const [indonesia_data, setIndonesiaData] = indonesia_state;
 
@@ -42,8 +42,13 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
         event.preventDefault();
 
         // update both data
-        updateProvinceData(provinsi, status, jumlah);
-        updateIndonesiaData(status, jumlah);
+        try {
+            updateProvinceData(provinsi, status, jumlah);
+            updateIndonesiaData(status, jumlah);
+        }
+        catch (error) {
+            
+        }
 
         // reset form
         setStatus('')
@@ -53,10 +58,10 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
 
     return (
         <section id='FormSection' className={`${styles.container} p-8 md:px-16 bg-slate-100`}>
-            <div className='max-w-screen-xl flex flex-col md:flex-row-reverse md:items-center gap-16 m-auto '>
+            <div className='flex md:flex-row-reverse flex-col md:items-center gap-16 m-auto max-w-screen-xl'>
                 <div className={`${styles.right} flex-1`}>
                     <header>
-                        <h2 className='text-teal-400 text-4xl font-semibold mb-4'>Covid Case Form</h2>
+                        <h2 className='mb-4 font-semibold text-4xl text-teal-400'>Covid Case Form</h2>
                     </header>
                     {/* form */}
                     <form
@@ -118,7 +123,7 @@ export default function CovidFormSection({ province_state, indonesia_state }) {
                     </form>
                 </div>
                 <div className={`${styles.left} flex-1 flex justify-center`}>
-                    <img className='max-w-full w-9/12' src="/assets/form.svg" alt="" />
+                    <img className='w-9/12 max-w-full' src="/assets/form.svg" alt="" />
                 </div>
             </div>
         </section>

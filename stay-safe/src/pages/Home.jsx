@@ -8,7 +8,8 @@ import raw_province_data from '../constants/provinces'
 import raw_indonesia_data from '../constants/indonesia'
 import Section from '../components/shared/Section/Section';
 import GlobalSection from '../components/GlobalSection/GlobalSection';
-import axios from 'axios';
+
+import { fetchGlobalData } from '../services/covidApi';
 
 
 export default function Home() {
@@ -17,14 +18,14 @@ export default function Home() {
   const [indonesia_data, setIndonesiaData] = useState(raw_indonesia_data);
   const [global_data, setGlobalData] = useState({});
 
-  useEffect(()=>{
-    async function fetchGlobalData(){
-      const response = await axios('https://covid-fe-2023.vercel.app/api/global.json');
-      setGlobalData(response.data);
-      console.log(response.data);
-    }
-
-    fetchGlobalData();
+  useEffect(() => {
+    fetchGlobalData()
+      .then((data) => {
+        setGlobalData(data);
+      }).catch((error) =>
+        console.log(error)
+        // toast error
+      )
   }, [])
 
 
@@ -32,8 +33,6 @@ export default function Home() {
     <>
       <main>
         <Hero />
-        <IndonesiaSection data={indonesia_data} />
-        <ProvinceSection data={province_data} />
         <GlobalSection data={global_data}></GlobalSection>
       </main>
     </>

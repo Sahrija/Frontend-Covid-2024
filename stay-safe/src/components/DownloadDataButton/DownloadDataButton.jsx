@@ -17,16 +17,26 @@ function exportAsCSV(data, filename = 'data.csv') {
 
 export default function DownloadDataButton({ data }) {
 
+    const excelData = data.regions && data.regions.map((region)=>{
+        return {
+            name: region.name,
+            confirmed: region.numbers.confirmed,
+            recovered: region.numbers.recovered,
+            treatment: region.numbers.treatment,
+            death: region.numbers.death,
+        }
+    })
+
     return (
         <div className='flex justify-end'>
-            <div className="inline-flex rounded-md shadow-sm mx-3">
-                <a onClick={() => { exportToExcel(data, 'covid_case_in_indonesia.xlsx') }}
-                    className="px-4 py-2 text-sm font-medium hover:cursor-pointer text-white bg-teal-400 border border-gray-200 rounded-s-lg hover:bg-teal-500 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+            <div className="inline-flex shadow-sm mx-3 rounded-md">
+                <a onClick={() => { exportToExcel(excelData, 'covid_case_in_indonesia.xlsx') }}
+                    className="focus:z-10 border-gray-200 dark:border-gray-700 bg-teal-400 hover:bg-teal-500 dark:hover:bg-gray-700 dark:bg-gray-800 px-4 py-2 border rounded-s-lg font-medium text-sm text-white hover:text-blue-700 dark:hover:text-white dark:focus:text-white dark:text-white hover:cursor-pointer focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:focus:ring-blue-500">
                     <span className='max-sm:hidden'>Download Excel</span>
                     <img className='sm:hidden max-w-5 fill-emerald-400' src="/assets/file-excel.svg" alt="" />
                 </a>
-                <a onClick={() => { exportAsCSV(data, 'covid_case_in_indonesia.csv') }}
-                    className="px-4 py-2 text-sm font-medium hover:cursor-pointer text-white bg-yellow-400 border border-gray-200 rounded-e-lg hover:bg-yellow-500 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                <a onClick={() => { exportAsCSV(excelData, 'covid_case_in_indonesia.csv') }}
+                    className="focus:z-10 border-gray-200 dark:border-gray-700 bg-yellow-400 hover:bg-yellow-500 dark:hover:bg-gray-700 dark:bg-gray-800 px-4 py-2 border rounded-e-lg font-medium text-sm text-white hover:text-blue-700 dark:hover:text-white dark:focus:text-white dark:text-white hover:cursor-pointer focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:focus:ring-blue-500">
                     <span className='max-sm:hidden'>Download CSV</span>
                     <img className='sm:hidden max-w-5' src="/assets/file-csv.svg" alt="" />
                 </a>

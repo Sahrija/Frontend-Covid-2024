@@ -4,7 +4,7 @@ import DataCard from '../DataCard/DataCard';
 
 const GlobalSection = ({ data }) => {
     return (
-        <Section title={'Global Situation'} subtitle={'Situation by global'}>
+        <Section title={'Global Situation'} subtitle={'Situation by global'} className='bg-slate-100'>
             <div className='flex sm:flex-row flex-col flex-wrap gap-8 m-auto'>
                 {
                     data.global &&

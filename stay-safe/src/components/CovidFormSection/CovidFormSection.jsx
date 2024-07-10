@@ -17,7 +17,7 @@ export default function CovidFormSection({ province_state = [], indonesia_state 
         // duplicate the province_data
         const newProvinceData = { ...province_data };
 
-        newProvinceData.provinces[province_idx][status] += amount;
+        newProvinceData.regions[province_idx].numbers[status] += amount;
         newProvinceData.last_update = utils.getCurrentDate();
 
         // update state with the updated duplicate province_data
@@ -80,12 +80,12 @@ export default function CovidFormSection({ province_state = [], indonesia_state 
                             onChange={(e) => setProvinsi(e.target.value)}
                         >
                             <option value=''>Pilih Kota</option>
-                            {province_data.provinces.map((province, index) =>
+                            {province_data.regions.map((province, index) =>
                                 <option
                                     key={index}
                                     value={index}
                                 >
-                                    {province.kota}
+                                    {province.name}
                                 </option>
                             )}
                         </select>
@@ -100,10 +100,10 @@ export default function CovidFormSection({ province_state = [], indonesia_state 
                             onChange={(e) => setStatus(e.target.value)}
                         >
                             <option value=''>Pilih Status</option>
-                            <option value="kasus">Kasus</option>
-                            <option value="sembuh">Sembuh</option>
-                            <option value="dirawat">Dirawat</option>
-                            <option value="meninggal">Meninggal</option>
+                            <option value="confirmed">Kasus</option>
+                            <option value="recovered">Sembuh</option>
+                            <option value="treatment">Dirawat</option>
+                            <option value="death">Meninggal</option>
                         </select>
 
                         <label htmlFor="jumlah">Jumlah</label>

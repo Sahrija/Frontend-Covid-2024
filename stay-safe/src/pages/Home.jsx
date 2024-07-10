@@ -34,7 +34,8 @@ export default function Home() {
     <>
       <main>
         <Hero />
-        <GlobalSection data={global_data}></GlobalSection>
+        <GlobalSection data={global_data}/>
+        <RegionSection data={global_data}/>
       </main>
     </>
   )

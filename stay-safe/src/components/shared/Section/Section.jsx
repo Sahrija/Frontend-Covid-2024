@@ -9,7 +9,7 @@ export default function Section({ title, subtitle, children, className, ...props
           <h2 className='mb-4 font-semibold text-4xl text-teal-400'>
             {title}
           </h2>
-          <p className='text-emerald-400'>
+          <p className='text-emerald-400 xl:'>
             {subtitle}
           </p>
         </header>

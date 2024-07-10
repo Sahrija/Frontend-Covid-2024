@@ -16,13 +16,16 @@ export default function IndonesiaSection({ data }) {
                 </header>
                 {/* card wrapper */}
                 <div className='flex sm:flex-row flex-col flex-wrap gap-8 m-auto max-w-screen-lg'>
-                    {data.indonesia.map((record, index) =>
-                        <DataCard
-                            key={index}
-                            record={record}
-                            index={index}
-                        />
-                    )}
+                    {
+                        data.indonesia &&
+                        data.indonesia.map((record, index) =>
+                            <DataCard
+                                key={index}
+                                record={record}
+                                index={index}
+                            />
+                        )
+                    }
                 </div>
             </div>
         </section>

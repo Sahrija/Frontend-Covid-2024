@@ -6,8 +6,9 @@ import IndonesiaSection from '../components/IndonesiaSection/IndonesiaSection';
 
 import raw_province_data from '../constants/provinces'
 import raw_indonesia_data from '../constants/indonesia'
-import Section from '../components/shared/Section/Section';
+
 import GlobalSection from '../components/GlobalSection/GlobalSection';
+import RegionSection from '../components/RegionSection/RegionSection';
 
 import { fetchGlobalData } from '../services/covidApi';
 

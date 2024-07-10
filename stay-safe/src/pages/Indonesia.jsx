@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Hero from '../components/Hero/Hero'
 import IndonesiaSection from '../components/IndonesiaSection/IndonesiaSection'
 import { fetchIndonesiaData } from '../services/covidApi'
+import ProvinceSection from '../components/ProvinceSection/ProvinceSection'
 
 const Indonesia = () => {
   const [indonesiaData, setGlobalData] = useState({})
@@ -23,6 +24,7 @@ const Indonesia = () => {
     <>
       <Hero />
       <IndonesiaSection data={indonesiaData} />
+      <ProvinceSection data={indonesiaData}/>
     </>
   )
 }

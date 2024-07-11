@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DownloadDataButton from '../DownloadDataButton/DownloadDataButton';
 import styles from './ProvinceSection.module.css';
 import { formatThousand } from '../../utils/utils';
+import ProvinceBarChart from './ProvinceBarChart';
 
 
 export default function ProvinceSection({ data }) {
@@ -55,7 +56,7 @@ export default function ProvinceSection({ data }) {
                         </thead>
                         <tbody>
                             {slicedProvinces.map((province, index) => {
-                                let { name, numbers: {confirmed, recovered, treatment, death} } = province;
+                                let { name, numbers: { confirmed, recovered, treatment, death } } = province;
                                 const kasus = formatThousand(confirmed)
                                 const sembuh = formatThousand(recovered)
                                 const dirawat = formatThousand(treatment)
@@ -87,6 +88,13 @@ export default function ProvinceSection({ data }) {
                     </div>
                 </div>
             </div>
+
+            <div className="relative m-auto max-w-screen-xl overflow-x-auto">
+                <div className="relative min-w-max h-[400px]">
+                    <ProvinceBarChart regionsData={data.regions}></ProvinceBarChart>
+                </div>
+            </div>
+
         </section >
 
     )

@@ -11,7 +11,6 @@ const Indonesia = () => {
   useEffect(() => {
     fetchIndonesiaData()
       .then((data) => {
-        console.log(data)
         setGlobalData(data);
       }).catch((error) =>
         console.log(error)

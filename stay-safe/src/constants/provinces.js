@@ -1,246 +1,314 @@
 const data = {
-    last_update: "2024-04-01",
-    total_province: 34,
-    provinces: [
-      {
-        kota: "Jakarta",
-        kasus: 10,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Jawa Barat",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Jawa Tengah",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Jawa Timur",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Banten",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Yogyakarta",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Kalimantan Timur",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Bali",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sumatera Utara",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Riau",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sulawesi Selatan",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sumatera Barat",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Nusa Tenggara Timur",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Kalimantan Selatan",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sumatera Selatan",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Lampung",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Kepulauan Riau",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Bangka Belitung",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Kalimantan Barat",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sulawesi Tengah",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Kalimantan Tengah",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sulawesi Utara",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Papua",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Kalimantan Utara",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Aceh",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Jambi",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Nusa Tenggara Barat",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Papua Barat",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Bengkulu",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sulawesi Tenggara",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Maluku",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Sulawesi Barat",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Maluku Utara",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-      {
-        kota: "Gorontalo",
-        kasus: 0,
-        sembuh: 0,
-        meninggal: 0,
-        dirawat: 0,
-      },
-    ],
-  };
-  
-  export default data;
+  last_update: "2024-04-01",
+  total_province: 34,
+  regions: [
+    {
+      name: "Jakarta",
+      numbers: {
+        confirmed: 10,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Jawa Barat",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Jawa Tengah",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Jawa Timur",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Banten",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Yogyakarta",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Kalimantan Timur",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Bali",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sumatera Utara",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Riau",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sulawesi Selatan",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sumatera Barat",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Nusa Tenggara Timur",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Kalimantan Selatan",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sumatera Selatan",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Lampung",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Kepulauan Riau",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Bangka Belitung",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Kalimantan Barat",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sulawesi Tengah",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Kalimantan Tengah",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sulawesi Utara",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Papua",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Kalimantan Utara",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Aceh",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Jambi",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Nusa Tenggara Barat",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Papua Barat",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Bengkulu",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sulawesi Tenggara",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Maluku",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Sulawesi Barat",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Maluku Utara",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+    {
+      name: "Gorontalo",
+      numbers: {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+        treatment: 0,
+      }
+    },
+  ],
+};
+
+export default data;

@@ -11,31 +11,18 @@ import GlobalSection from '../components/GlobalSection/GlobalSection';
 import RegionSection from '../components/RegionSection/RegionSection';
 
 import { fetchGlobalData } from '../services/covidApi';
+import { GlobalDataProvider } from '../context/GlobalDataContext';
 
 
 export default function Home() {
-
-  const [province_data, setProvinceData] = useState(raw_province_data);
-  const [indonesia_data, setIndonesiaData] = useState(raw_indonesia_data);
-  const [global_data, setGlobalData] = useState({});
-
-  useEffect(() => {
-    fetchGlobalData()
-      .then((data) => {
-        setGlobalData(data);
-      }).catch((error) =>
-        console.log(error)
-        // toast error
-      )
-  }, [])
-
-
   return (
     <>
       <main>
-        <Hero />
-        <GlobalSection data={global_data}/>
-        <RegionSection data={global_data}/>
+        <GlobalDataProvider>
+          <Hero />
+          <GlobalSection/>
+          <RegionSection/>
+        </GlobalDataProvider>
       </main>
     </>
   )

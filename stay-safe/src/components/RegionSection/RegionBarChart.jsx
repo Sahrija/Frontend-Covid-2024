@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
+import { GlobalDataContext } from '../../context/GlobalDataContext';
 
 
-ChartJS.register(CategoryScale, Tooltip, BarElement);
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 
 
-const RegionBarChart = ({ regionsData }) => {
+const RegionBarChart = () => {
+    const data = useContext(GlobalDataContext);
+    const regionsData = data?.regions;
 
     return (
         <>

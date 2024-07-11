@@ -1,6 +1,7 @@
 import React from 'react'
 import Section from '../shared/Section/Section'
 import { formatThousand } from '../../utils/utils'
+import RegionBarChart from './RegionBarChart'
 
 const RegionSection = ({ data }) => {
     return (
@@ -10,8 +11,7 @@ const RegionSection = ({ data }) => {
         >
             <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
                 {
-                    data.regions &&
-                    data.regions.map(region =>
+                    data.regions?.map(region =>
                         <div className='p-4 space-y-2 bg-white rounded-lg shadow-md md:p-8'>
                             <h3 className='text-2xl font-bold text-center text-slate-600'>
                                 {region.name}
@@ -53,7 +53,14 @@ const RegionSection = ({ data }) => {
                     )
                 }
             </div>
-        </Section>
+
+            <div className='relative max-w-screen-sm m-auto mt-8 overflow-x-auto sm:max-w-screen-md '>
+                <p className='text-center text-emerald-500'>Chart</p>
+                <div className='min-w-[500px] h-96'>
+                    <RegionBarChart regionsData={data.regions}></RegionBarChart>
+                </div>
+            </div>
+        </Section >
     )
 }
 
